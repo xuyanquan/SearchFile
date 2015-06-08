@@ -1,0 +1,7 @@
+{
+	//config project root path
+	"root": "D:\\workspace",
+
+	//enhance search intelligence, false represent for select full line path to search commod
+	"enhance": true
+}

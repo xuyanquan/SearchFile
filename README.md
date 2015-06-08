@@ -11,6 +11,7 @@ Official SearchFile plugin for Sublime Text.
 unsupport with Package Control
 
 Manually:
+
 1. Clone or download git repo into your packagesfolder(in Sublime Text,find Browse Packages...menu item to open this folder) with folder named `SearchFile`
 
 2.Restart Sublime Text editor (if required)
@@ -50,6 +51,7 @@ just as follow:
 }
 ```
 1.root represent your project root path
+
 2.enhance search ability default true, if you set it as false, you should select full line your path before press `alt+m`
 
 
@@ -73,7 +75,7 @@ You can also open absolute path with project root path. just as
 ```css
 /path_one/path_two/test.css
 ```
-then it will open `root path` + /path_one/path_two/test.css
+then it will open `root path`(D:\\workspace) + /path_one/path_two/test.css
 
 
 If file path is error or not find file, it will show error message.
