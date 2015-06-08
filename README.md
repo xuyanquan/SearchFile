@@ -4,14 +4,15 @@ Official SearchFile plugin for Sublime Text.
 
 * [How to install](#how-to-install)
 * [Overriding keyboard shortcuts](#overriding-keyboard-shortcuts)
-* [Config project path](#Config-project-path)
-* [How to use](#How-to-use)
+* [Config project path](#config-project-path)
+* [How to use](#how-to-use)
 
 ## How to install
 unsupport with Package Control
 
 Manually:
 1. Clone or download git repo into your packagesfolder(in Sublime Text,find Browse Packages...menu item to open this folder) with folder named `SearchFile`
+
 2.Restart Sublime Text editor (if required)
 
 ##overriding keyboard shortcuts
