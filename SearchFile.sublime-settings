@@ -1,6 +1,6 @@
 {
-	//config project root path
-	"root": "D:\\workspace",
+	//config project root path, Default ""
+	"root": "",
 
 	//enhance search intelligence, false represent for select full line path to search commod
 	"enhance": true

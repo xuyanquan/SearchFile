@@ -12,7 +12,7 @@ unsupport with Package Control
 
 Manually:
 
-1. Clone or download git repo into your packagesfolder(in Sublime Text,find Browse Packages...menu item to open this folder) with folder named `SearchFile`
+1.Clone or download git repo into your packagesfolder(in Sublime Text,find Browse Packages...menu item to open this folder) with folder named `SearchFile`
 
 2.Restart Sublime Text editor (if required)
 
@@ -35,7 +35,7 @@ Then, change `alt+m` to you want keybord shortcuts
 
 ## Config project path
 
-Before use search file, you should config two params in settings.
+Before use search file, you maybe want to config two params in settings as yourself.
 
 Open `sublime-keymap` file or click Sublime Text Menu button `Preferences` --> `Package Settings` --> `SearchFile` --> `Settings-Default`
 
@@ -43,14 +43,14 @@ just as follow:
 
 ```js
 {
-	//config project root path
+	//config project root path, Default ""
 	"root": "D:\\workspace",
 
 	//enhance search intelligence, false represent for select full line path to search commod
 	"enhance": true
 }
 ```
-1.root represent your project root path
+1.root represent your project root path. serch file in all folders you opend if root path left "". config it for more faster serching file
 
 2.enhance search ability default true, if you set it as false, you should select full line your path before press `alt+m`
 

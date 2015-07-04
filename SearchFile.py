@@ -14,7 +14,13 @@ def findFile(findpath, filename, tmplist):
 		return True
 
 	if findpath[0] == '/':
-		tmplist = Options['ROOT']
+		if Options['ROOT'] == '' or Options['ROOT'] == None:
+			for root in sublime.active_window().folders():
+				if os.path.exists(root + '\\'.join(findpath.split('/'))):
+					tmplist = root
+					break
+		else:
+			tmplist = Options['ROOT']
 
 
 	findpath = tmplist + '\\'.join(findpath.split('/'))
@@ -106,3 +112,45 @@ class SearchfileCommand(sublime_plugin.TextCommand):
 		print "SeachFile End"
 		print "\n\n\n"
 
+
+#class SearchfileCommand(sublime_plugin.EventListener):
+	#def on_load(self, view):
+		#print "new view loadding"
+		#return
+	#def on_modified(self, view):
+		#print "modify view"
+		#return
+
+		#sett = sublime.load_settings('SearchFile.sublime-settings')
+		#
+		#if findpath.find('/') != -1:       				 	    				
+		#	tmplist.append('\\'.join(findpath.split('/')))
+		#else:
+		#	tmplist.append(findpath)   
+		#	
+		#	
+		# if os.path.exists(findpath):
+		# 	try:
+		# 		sublime.active_window().open_file(findpath)
+		# 	except BaseException:
+		# 		print "Error on except"
+		# else:
+		# 	message = "Sorry, I cannot find the %s file."
+		# 	print message % findpath 
+		# 	sublime.message_dialog(message % self.view.substr(sels[0]))
+		# 	
+		# 	
+		# 	
+		#globals()['settings'] = sublime.load_settings('Emmet.sublime-settings')
+    	#	if self.view.substr(sel).find('{') != -1:
+		#print sublime.active_window().active_view().file_name()
+		#print self.view.file_name()
+		#self.view.insert(edit, 0, "")
+		# try:
+		#    fh = open("testfile", "w")
+		#    fh.write("This is my test file for exception handling!!")
+		# except IOError:
+		#    print "Error: can\'t find file or read data"
+		# else:
+		#    print "Written content in the file successfully"
+		#    fh.close()
