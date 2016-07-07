@@ -79,4 +79,3 @@ then it will open `root path`(D:\\workspace) + /path_one/path_two/test.css
 
 
 If file path is error or not find file, it will show error message.
-
