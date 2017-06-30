@@ -3,46 +3,50 @@ import sublime, sublime_plugin, os
 def initConstant():
 	global Setttings
 	global Options
+	global SplitFlag
 	Setttings = sublime.load_settings('SearchFile.sublime-settings')
 	Options = { 'ROOT': Setttings.get('root'), 'ENHANCE': Setttings.get('enhance') }
+	if sublime.platform() == 'osx':
+		SplitFlag = '/'
+	else:
+		SplitFlag = '\\'
 
 initConstant()
 
 def findFile(findpath, filename, tmplist):
 	if findpath == '':
-		print 'empty file find '
+		print( 'empty file find ' )
 		return True
 
 	if findpath[0] == '/':
 		if Options['ROOT'] == '' or Options['ROOT'] == None:
 			for root in sublime.active_window().folders():
-				if os.path.exists(root + '\\'.join(findpath.split('/'))):
+				if os.path.exists(root + SplitFlag.join(findpath.split('/'))):
 					tmplist = root
 					break
 		else:
 			tmplist = Options['ROOT']
 
-
-	findpath = tmplist + '\\'.join(findpath.split('/'))
+	findpath = tmplist + SplitFlag.join(findpath.split('/'))
 
 	if os.path.exists(findpath):
 		try:
 			sublime.active_window().open_file(findpath)
 		except BaseException:
-			print "Error on except"
+			print( "Error on except" )
 			return False
 	else:
 		message = "Sorry, I cannot find the %s file."
-		print message % findpath 
+		print( message % findpath  )
 		return False
 
 	return True
 
 def parseSel(self, findpath):
 	srcpath = self.view.file_name()
-	tmplist = srcpath.split('\\')			
+	tmplist = srcpath.split(SplitFlag)			
 	tmplist.pop()
-	tmplist = '\\'.join(tmplist) + '\\'
+	tmplist = SplitFlag.join(tmplist) + SplitFlag
 	sels = []
 
 	FindResult = []
@@ -70,9 +74,9 @@ def parseSel(self, findpath):
 
 class SearchfileCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		print "\n\n\n"
-		print "SeachFile Start"
-		print "==============================================="	
+		print( "\n\n\n" )
+		print( "SeachFile Start" )
+		print( "===============================================" )
 
 		
 		sels = self.view.sel()		
@@ -94,7 +98,7 @@ class SearchfileCommand(sublime_plugin.TextCommand):
 		if len(notFindSel) > 0 and Options['ENHANCE']:
 			#self.view.run_command("expand_selection", {"to": "scope"})
 			self.view.run_command("expand_selection", {"to": "brackets"})
-			#print Options['ENHANCE']
+			#print( Options['ENHANCE'] )
 			sels = self.view.sel()
 			for i in notFindSel:
 				findpath = self.view.substr(sels[i]).replace("'","").replace('"','').lstrip().rstrip()
@@ -108,9 +112,9 @@ class SearchfileCommand(sublime_plugin.TextCommand):
 			message = "Sorry, I cannot find the %s file."
 			sublime.message_dialog(message % ','.join(FindResult))
 		
-		print "==============================================="
-		print "SeachFile End"
-		print "\n\n\n"
+		print( "===============================================" )
+		print( "SeachFile End" )
+		print( "\n\n\n" )
 
 
 #class SearchfileCommand(sublime_plugin.EventListener):
