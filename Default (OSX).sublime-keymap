@@ -1,5 +1,5 @@
 [
   {
-    "keys": ["alt+m"], "command": "SearchFile"
+    "keys": ["alt+m"], "command": "searchfile"
   }
 ]
