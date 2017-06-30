@@ -12,7 +12,7 @@ unsupport with Package Control
 
 Manually:
 
-1.Clone or download git repo into your packagesfolder(in Sublime Text,find Browse Packages...menu item to open this folder) with folder named `SearchFile`
+1.Clone or download git repo into your packagesfolder(in Sublime Text,find Browse `Packages`...menu item to open this folder) with folder named `SearchFile`
 
 2.Restart Sublime Text editor (if required)
 
